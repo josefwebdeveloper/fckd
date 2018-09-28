@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from "@angular/core";
 import { CalendarEvent } from "angular-calendar";
 import { Subject } from "rxjs";
 import { UserService } from "../_services/user.service";
+import { environment } from "../../environments/environment";
 import {
   startOfDay,
   endOfDay,
@@ -23,7 +24,7 @@ import {
 })
 export class CalendarComponent implements OnInit {
   constructor(private userService: UserService) {}
-
+  
   refresh: Subject<any> = new Subject();
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -38,6 +39,7 @@ export class CalendarComponent implements OnInit {
       }
     }
   }
+  webUrl=environment.webUrl;
   view: string = "month";
   activeDayIsOpen = true;
   colors: any = {

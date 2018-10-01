@@ -1,6 +1,50 @@
-.calendar_wrapper{
-    margin-top: 5%;
+.image_funny {
+  width: 60%;
 }
-.image_funny{
-    width: 60%;
+.container_calendar {
+  margin-top: 60px;
 }
+
+// .container_calendar {
+//     margin-top: 60px;
+//   }
+.cal-month-view.cal-day-cell {
+  height: 20px !important;
+  min-height: 10px !important;
+}
+
+mwl-calendar-month-cell {
+  // touch-action: manipulation !important;
+}
+
+// Small devices (landscape phones, 576px and up)
+@media only screen and (max-width: 600px) {
+  mwl-calendar-month-cell {
+    // touch-action: manipulation !important;
+  }
+
+  
+
+  .cal-day-number {
+    font-size: 0.5rem;
+    font-weight: 400;
+    opacity: 0.5;
+    margin-top: 15px;
+    margin-right: 15px;
+    float: right;
+    margin-bottom: 10px;
+  }
+
+  .cal-cell-top {
+    min-height: 5px !important;
+    flex: 1;
+  }
+
+  .cal-month-view.cal-day-cell {
+    height: 20px !important;
+    min-height: 10px !important;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}

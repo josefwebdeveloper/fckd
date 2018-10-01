@@ -73,7 +73,7 @@ export class CalendarComponent implements OnInit {
   ];
 
   clickedDate: Date;
-
+  show;
   ngOnInit() {
     this.getAllEvents();
   }
@@ -87,23 +87,38 @@ export class CalendarComponent implements OnInit {
   //   });
   // }
 
-  eventClicked({ event }: { event: CalendarEvent }): void {
-    this.activeDayIsOpen = !this.activeDayIsOpen;
-  }
+  // eventClicked({ event }: { event: CalendarEvent }): void {
+  //   this.activeDayIsOpen = !this.activeDayIsOpen;
+  // }
+  timer;
+  addEventDelete(event) {
+    this.timer = setTimeout(function() {
+     
+      }, 2000);
+}
   clickDate(event) {
+    console.log("1",{event});
+      this.show=event.day.date;
+      console.log("show",this.show);
+      // this.addEventDelete(event);
+      // setTimeout(()=>{    
+        if (event.day.events.length > 0) {
+          this.deleteEvent(event);
+        } else {
+          // console.log('Event clicked');
+          // this.addEvent(event);
+          this.add(event.day.date, this.title);
+    
+          this.clickedDate = event;
+          console.log({event});
+        }
+    
+        this.refresh.next();
+
+        //  }, 2000);
     // console.log('Event clicked',{event});
-    if (event.day.events.length > 0) {
-      this.deleteEvent(event);
-    } else {
-      // console.log('Event clicked');
-      // this.addEvent(event);
-      this.add(event.day.date, this.title);
-
-      this.clickedDate = event;
-      // console.log(this.events);
-    }
-
-    this.refresh.next();
+    
+   
   }
   getAllEvents(): void {
     this.userService.getAllEvents().subscribe(events => {

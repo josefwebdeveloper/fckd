@@ -9,10 +9,12 @@
       <!-- <strong *ngIf="clickedDate">You clicked on this day: {{ clickedDate }}</strong> -->
     </div>
     <ng-template #customCellTemplate let-day="day" let-locale="locale">
-      <div class="cal-cell-top">
+      <div class="cal-cell-top wrapper_day">
         <!-- <div class="image_funny"> -->
         <!-- <img class="image_funny animated hinge infinite" src="../../assets/image/animoji-gif-hotovo.gif" alt=""> -->
+        <div class="image_wrapper">
         <img *ngIf="day.events.length>0" class="image_funny animated "   src="{{webUrl}}/assets/image/shit.png" alt="">
+      </div>
         <!-- <div *ngIf="day.events.length>0" >{{day.events[0].start}}qq{{show}}</div> -->
         <!-- [className]="day.events[0].start===show? 'image_funny animated  hinge':'image_funny animated'" -->
         <!-- [ngClass]="{'hinge':show} -->
@@ -27,7 +29,7 @@
     <!-- (dayClicked)="clickedDate = $event.day.date" -->
     <!-- <div [ngSwitch]="view"> -->
       <mwl-calendar-month-view [viewDate]="viewDate" [events]="events" (dayClicked)="clickDate($event)"
-        [cellTemplate]="customCellTemplate" [refresh]="refresh" (eventClicked)="eventClicked($event)">
+        [cellTemplate]="customCellTemplate" [refresh]="refresh" >
       </mwl-calendar-month-view>
       <!-- <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events" [refresh]="refresh"
         (dayHeaderClicked)="clickedDate = $event.day.date">

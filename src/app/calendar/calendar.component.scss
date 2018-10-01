@@ -1,5 +1,6 @@
 .image_funny {
   width: 60%;
+ 
 }
 .container_calendar {
   margin-top: 60px;
@@ -9,7 +10,7 @@
 //     margin-top: 60px;
 //   }
 .cal-month-view.cal-day-cell {
-  height: 20px !important;
+  // height: 20px !important;
   min-height: 10px !important;
 }
 
@@ -22,11 +23,19 @@ mwl-calendar-month-cell {
   mwl-calendar-month-cell {
     // touch-action: manipulation !important;
   }
-
+  .image_funny {
   
+   max-height: 28px;
+  }
+
+  .image_wrapper{
+   min-height: 28px;
+   display: flex;
+   justify-content: center;
+  }
 
   .cal-day-number {
-    font-size: 0.5rem;
+    // font-size: 0.5rem;
     font-weight: 400;
     opacity: 0.5;
     margin-top: 15px;

@@ -1,6 +1,7 @@
 <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg  navbar-dark indigo scrolling-navbar ie-nav" >
     <mdb-navbar-brand>
-        <a class="logo navbar-brand" href="#"><strong>Hi - {{currentUser.username}}</strong></a>
+        <a *ngIf="currentUser" class="logo navbar-brand" href="#"><strong>Hi - {{currentUser.username}}</strong></a>
+        <a *ngIf="!currentUser" class="logo navbar-brand" href="#"><strong>Hi - <img class="image_funny animated "   src="{{webUrl}}/assets/image/shit.gif" alt=""></strong></a>
     </mdb-navbar-brand>
     <links>
         <ul class="navbar-nav mr-auto">

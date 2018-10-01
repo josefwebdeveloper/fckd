@@ -17,9 +17,16 @@ export class NavbarComponent implements OnInit {
       this.currentUser = user;
     });
     this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    console.log("1", this.currentUser);
    }
 
   ngOnInit() {
   }
-
+  logout(){
+    console.log("logout");
+    this.authenticationService.logout();
+    this.currentUser = null;
+    // this.router.navigate(["/login"]);
+    location.reload(true);
+  }
 }

@@ -25,11 +25,13 @@ export class AuthenticationService {
         map(user => {
           // login successful if there's a jwt token in the response
           if (user && user.token) {
+            // localStorage.setItem("currentUser", JSON.stringify(user));
             tap((user: User) => this.userEmitChange(user)),
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem("currentUser", JSON.stringify(user));
+            // localStorage.setItem("currentUser", JSON.stringify(data));
           }
-
+        //   localStorage.setItem("currentUser", JSON.stringify(user));
           return user;
         })
       );

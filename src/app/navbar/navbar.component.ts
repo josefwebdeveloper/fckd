@@ -9,7 +9,7 @@ import { environment } from "../../environments/environment";
 })
 export class NavbarComponent implements OnInit {
   webUrl=environment.webUrl;
-  currentUser: User;
+  currentUser;
   // socialUser;
   constructor( private authenticationService:AuthenticationService,
     private userService:UserService

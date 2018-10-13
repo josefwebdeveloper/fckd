@@ -10,7 +10,11 @@ import {
 
 import { AlertService, AuthenticationService } from '../_services';
 
-@Component({templateUrl: 'login.component.html'})
+
+@Component({
+    templateUrl: 'login.component.html',
+    styleUrls: ['./login.component.scss']
+})
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
@@ -37,11 +41,27 @@ export class LoginComponent implements OnInit {
             
             this.socialAuthService.signIn(socialPlatformProvider).then(
               (userData) => {
-                console.log(socialPlatform+" sign in data : " , userData);
+                console.log(socialPlatform+" sign in data : " , {userData});
                 // Now sign-in with userData
-                // ...
-                    
+                
+                this.loading = true;
+                this.authenticationService.loginGoogle(userData)
+                .pipe(first())
+                .subscribe(
+                    data => {
+                        console.log("login success");
+                        // this.router.navigate([this.returnUrl]);
+                        this.loading = false;
+                        console.log(" this.route.snapshot.queryParams['returnUrl'] || '/'", this.route.snapshot.queryParams['returnUrl'] || '/')
+                        // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+                        this.router.navigate([this.returnUrl]);
+                    },
+                    error => {
+                        this.alertService.error(error);
+                        this.loading = false;
+                    });
               }
+              
             );
           }
     ngOnInit() {

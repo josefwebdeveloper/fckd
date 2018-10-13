@@ -10,17 +10,21 @@ import { environment } from "../../environments/environment";
 export class NavbarComponent implements OnInit {
   webUrl=environment.webUrl;
   currentUser: User;
+  // socialUser;
   constructor( private authenticationService:AuthenticationService,
     private userService:UserService
      ) {
     this.authenticationService.userEmitter.subscribe(user => {
       this.currentUser = user;
+      console.log("this.currentUser", this.currentUser);
+    
     });
     this.currentUser = JSON.parse(localStorage.getItem("currentUser"));
     console.log("1", this.currentUser);
    }
 
   ngOnInit() {
+
   }
   logout(){
     console.log("logout");

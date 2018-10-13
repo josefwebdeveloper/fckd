@@ -4,4 +4,7 @@
     password: string;
     firstName: string;
     lastName: string;
+    provider:string;
+    image:string;
+    
 }

@@ -1,11 +1,15 @@
-<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg  navbar-dark indigo scrolling-navbar ie-nav" >
-    <mdb-navbar-brand>
-        <a  (click)="logout()" *ngIf="currentUser" class="logo navbar-brand" href="#"><strong>Hi - {{currentUser.username}} <img class="image_funny animated "   src="{{webUrl}}/assets/image/shit.gif" alt=""></strong></a>
-        <a *ngIf="!currentUser" class="logo navbar-brand" href="#"><strong>Hi - <img class="image_funny animated "   src="{{webUrl}}/assets/image/shit.gif" alt=""></strong></a>
-    </mdb-navbar-brand>
-    <links>
-        <ul class="navbar-nav mr-auto">
-            <!-- <li class="nav-item active waves-light" mdbWavesEffect>
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg  navbar-dark indigo scrolling-navbar ie-nav">
+  <mdb-navbar-brand>
+    <a (click)="logout()" *ngIf="currentUser&&currentUser.user.provider" class="logo navbar-brand" href="#"><strong>
+        {{currentUser.user.username}} <img class="image_funny animated " src="{{currentUser.user.image}}" alt=""></strong></a>
+    <a (click)="logout()" *ngIf="currentUser&&!currentUser.user.provider" class="logo navbar-brand" href="#"><strong>Hi -
+        {{currentUser.user.username}} <img class="image_funny animated " src="{{webUrl}}/assets/image/shit.gif" alt=""></strong></a>
+    <a *ngIf="!currentUser" class="logo navbar-brand" href="#"><strong>Hi - <img class="image_funny animated " src="{{webUrl}}/assets/image/shit.gif"
+          alt=""></strong></a>
+  </mdb-navbar-brand>
+  <links>
+    <ul class="navbar-nav mr-auto">
+      <!-- <li class="nav-item active waves-light" mdbWavesEffect>
                 <a class="nav-link">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item waves-light" mdbWavesEffect>
@@ -14,23 +18,23 @@
             <li class="nav-item waves-light" mdbWavesEffect>
             <a class="nav-link">Pricing</a>
             </li> -->
-            <li class="nav-item waves-light" mdbWavesEffect>
-                    <img class="image_funny animated "   src="{{webUrl}}/assets/image/shit.gif" alt="">
-                <!-- <a class="nav-link">Opinions</a> -->
-            </li>
-        </ul>
-        <ul class="navbar-nav nav-flex-icons">
-            <li class="nav-item waves-light" mdbWavesEffect>
-                <a class="nav-link"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li class="nav-item waves-light" mdbWavesEffect>
-                <a class="nav-link"><i class="fa fa-twitter"></i></a>
-            </li>
-            <li class="nav-item waves-light" mdbWavesEffect>
-                <a class="nav-link"><i class="fa fa-instagram"></i></a>
-            </li>
-        </ul>
-    </links>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <img class="image_funny animated " src="{{webUrl}}/assets/image/shit.gif" alt="">
+        <!-- <a class="nav-link">Opinions</a> -->
+      </li>
+    </ul>
+    <ul class="navbar-nav nav-flex-icons">
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link"><i class="fa fa-facebook"></i></a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li class="nav-item waves-light" mdbWavesEffect>
+        <a class="nav-link"><i class="fa fa-instagram"></i></a>
+      </li>
+    </ul>
+  </links>
 </mdb-navbar>
 <!-- Main -->
 <!-- <main>

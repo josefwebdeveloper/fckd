@@ -6,8 +6,8 @@ export const environment = {
   production: false,
  
 
-  apiUrl: 'https://radiant-eyrie-10035.herokuapp.com',
-  // apiUrl: 'http://localhost:4000',
+  // apiUrl: 'https://radiant-eyrie-10035.herokuapp.com',
+  apiUrl: 'http://localhost:4000',
   // webUrl:'https://josefwebdeveloper.github.io/fckd/',
   webUrl:'http://localhost:4200'
  

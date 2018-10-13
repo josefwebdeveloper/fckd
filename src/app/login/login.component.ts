@@ -2,6 +2,11 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import {
+    AuthService,
+    FacebookLoginProvider,
+    GoogleLoginProvider
+} from 'angular-6-social-login';
 
 import { AlertService, AuthenticationService } from '../_services';
 
@@ -13,12 +18,32 @@ export class LoginComponent implements OnInit {
     returnUrl: string;
 
     constructor(
+        private socialAuthService: AuthService ,
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService,
         private alertService: AlertService) {}
 
+
+
+        public socialSignIn(socialPlatform : string) {
+            let socialPlatformProvider;
+            if(socialPlatform == "facebook"){
+              socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+            }else if(socialPlatform == "google"){
+              socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
+            } 
+            
+            this.socialAuthService.signIn(socialPlatformProvider).then(
+              (userData) => {
+                console.log(socialPlatform+" sign in data : " , userData);
+                // Now sign-in with userData
+                // ...
+                    
+              }
+            );
+          }
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
